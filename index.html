@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-      <meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
   <title>My Project</title>
-  <link rel="stylesheet" href="index,css">
-    <div id="sidebar">
-        <div class="toggle-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-            <ul class="nav-list">
-                <li>HOME</li>
-                <li>WORK</li>
-                <li>ABOUT</li>
-                <li>CONTACT</li>
-            </ul>
-
-
-
+  <div id="sidebar">
+    <div class="toggle-btn">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <ul class="nav-list">
+      <li>HOME</li>
+      <li>WORK</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+  </div>
+
+  <button onclick="showSnackbar()">Show Snackbar</button>
+
+  <div id="snackbar">This is a snackbar message!</div>
+
+  <script>
+    function showSnackbar() {
+      const snackbar = document.getElementById("snackbar");
+      snackbar.classList.add("show");
+      setTimeout(() => {
+        snackbar.classList.remove("show");
+      }, 3000);
+    }
+  </script>
+</body>
 </html>
