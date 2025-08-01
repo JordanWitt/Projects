@@ -228,6 +228,62 @@ nav li:hover {
   border-color: var(--accent);
 }
 
+/*Spotify*/
+/* Pixel font - make sure to link this in your HTML if not already */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.top-tracks-section {
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #221f2b;
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  color: #4d3e5c;
+}
+
+.tracks-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.track {
+  white-space: nowrap;
+  color: #1d1d33;
+  text-decoration: none;
+}
+
+.track:hover {
+  text-decoration: underline;
+  color: #4d3e5c;
+}
+
+
+.track-artist {
+  color: #1d1d33;
+}
+.track.now-playing {
+  color: #6d86cf;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.track.now-playing {
+  color: #1d1d33;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
 /* Footer */
 footer {
   padding: 2rem 0;
