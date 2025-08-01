@@ -1,9 +1,9 @@
 :root {
-  --bg-main: #7e9a84;
+  --bg-main: #89779c;
   --bg-secondary: #d9d6b2;
   --text-color: #000000;
   --accent: #e4ec1e;
-  --card-bg: #ffffff;
+  --card-bg: #77708c;
   --pixel-dot: rgba(0, 0, 0, 0.08);
   --black: #000000;
 }
@@ -11,9 +11,9 @@
 body.dark-theme {
   --bg-main: #4d3e5c;
   --bg-secondary: #111111;
-  --text-color: #f5f5f5;
+  --text-color: #e4ec1e;
   --accent: #c8bf8d;
-  --card-bg: #1a1a1a;
+  --card-bg: #221f2b;
   --pixel-dot: rgb(34, 31, 43);
 }
 
@@ -44,6 +44,49 @@ html, body {
   z-index: -1;
   pointer-events: none;
 }
+/* Progress Bar*/
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent, #d33f55);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Loading Screen*/
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeOut 1s ease 2s forwards;
+}
+
+.boot-text {
+  font-size: 1.25rem;
+  animation: blinkCursor 1s steps(2) infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
 
 /* Marquee */
 .marquee {
@@ -82,27 +125,27 @@ nav ul {
   list-style: none;
 }
 nav li:hover {
+  cursor: pointer;
   color: var(--accent);
 }
 .theme-toggle {
-  padding: 0.4rem 0.8rem;
-  background: var(--text-color);
-  color: var(--bg-main);
-  border: 2px solid var(--text-color);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: inherit;
+  transition: transform 0.2s ease;
 }
+
 .theme-toggle:hover {
-  background: var(--accent);
-  color: var(--text-color);
+  transform: scale(1.2);
 }
+
 
 /* Hero */
 .hero {
   text-align: center;
   padding: 4rem 1rem 6rem 4rem;
-  border: 4px solid var(--text-color);
-  background: var(--bg-main);
-  box-shadow: 6px 6px 0 var(--accent);
   margin-bottom: 2rem;
 }
 .hero-title {
@@ -127,11 +170,10 @@ nav li:hover {
 
 /* About Section */
 .profile-picture img {
-  width: 300px;
+  border: 2px solid, var(--black);
+  width: 400px;
   height: 300px;
   object-fit: cover;
-  border: 5px solid var(--black);
-  box-shadow: 6px 6px 0 var(--accent);
 }
 .about-section {
   display: flex;
@@ -189,5 +231,6 @@ footer {
   list-style: none;
 }
 footer li:hover {
+  cursor: pointer;
   color: var(--accent);
 }

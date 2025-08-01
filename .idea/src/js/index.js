@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Typewriter for About Me
     const aboutParagraph = document.querySelector(".about-me-p");
     if (aboutParagraph) {
-        aboutParagraph.textContent = " I’m a front-end developer with a love for clean code and bold visuals. When I’m not building things, I’m gaming, fine-tuning design details, exploring color palettes, or running on a steady mix of Diet Coke and vibes.";
+        aboutParagraph.textContent = " I’m a front-end developer with a love for clean code and bold visuals. " +
+            "When I’m not building things, I’m gaming, fine-tuning design details, exploring color palettes, " +
+            "or running on a steady mix of Diet Coke and vibes.";
         const text = aboutParagraph.textContent;
         aboutParagraph.textContent = "";
         let i = 0;
@@ -27,15 +29,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Dark Mode Toggle
-    const themeToggle = document.getElementById("theme-toggle");
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-theme");
-            themeToggle.textContent = document.body.classList.contains("dark-theme")
-                ? "Light Mode"
-                : "Dark Mode";
-        });
-    }
+    const toggleBtn = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+
+    toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+
+        if (document.body.classList.contains("dark-theme")) {
+            themeIcon.textContent = "☀️";
+            localStorage.setItem("theme", "dark");
+        } else {
+            themeIcon.textContent = "🌙";
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+// Load saved theme
+    window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-theme");
+            themeIcon.textContent = "☀️";
+        }
+    });
+
+
+    //Progress Scroll
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.getElementById("progress-bar").style.width = scrollPercent + "%";
+    });
+
+    //Loading Screen
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.getElementById("loading-screen").style.display = "none";
+        }, 3000); // adjust to match animation
+    });
+
 
     // Dot Canvas
     const canvas = document.getElementById('dot-canvas');
