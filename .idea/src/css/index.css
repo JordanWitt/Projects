@@ -17,6 +17,8 @@ body.dark-theme {
   --pixel-dot: rgb(34, 31, 43);
 }
 
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -44,6 +46,16 @@ html, body {
   z-index: -1;
   pointer-events: none;
 }
+.cursor-dot {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  background: white;
+}
+
 /* Progress Bar*/
 #progress-bar {
   position: fixed;

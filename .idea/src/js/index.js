@@ -53,6 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    //Email
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied!");
+        });
+    }
+
 
     //Progress Scroll
     window.addEventListener("scroll", () => {
